@@ -1,34 +1,41 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Chart from 'chart.js'
 
-const VoteBar = props => {
-  const { labels, votes } = props
+class VoteBar extends React.Component {
+  constructor (props) {
+    super(props)
+    this.chartRef = React.createRef()
+  }
 
-  useEffect(() => {
-    var ctx = document.getElementById('myChart').getContext('2d')
-    var myPieChart = new Chart(ctx, {
-      type: 'pie',
+  componentDidMount () {
+    this.myChart = new Chart(this.chartRef.current, {
+      type: 'doughnut',
       data: {
-        labels: labels,
+        labels: this.props.options.map(d => d.label),
         datasets: [
           {
-            data: votes,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)'
-            ]
+            data: this.props.options.map(d => d.vote),
+            backgroundColor: this.props.colors
           }
         ]
       }
     })
-  })
+  }
 
-  return (
-    <div>
-      <canvas id='myChart' />
-    </div>
-  )
+  componentDidUpdate () {
+    this.myChart.data.labels = this.props.options.map(d => d.label)
+    this.myChart.data.datasets[0].data = this.props.options.map(d => d.vote)
+    this.myChart.data.datasets[0].backgroundColor = this.props.colors
+    this.myChart.update()
+  }
+
+  render () {
+    return (
+      <div>
+        <canvas ref={this.chartRef} />
+      </div>
+    )
+  }
 }
 
 export default VoteBar

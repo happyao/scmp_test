@@ -8,17 +8,16 @@ class CurrentPoll extends Component {
     var date =
       new Date(this.props.customData[this.props.currentID].publishedDate) + ''
     var options = this.props.customData[this.props.currentID].answer.options
-    var labels = options.map(item => {
-      return item.label
-    })
-
-    var votes = options.map(item => {
-      return item.vote
-    })
 
     var votes_count = options.reduce((count, item) => {
       return count + item.vote
     }, 0)
+
+    var colors =
+      options.length === 2
+        ? ['blue', 'yellow']
+        : ['white', 'blue', 'yellow', 'green', 'purple', 'red']
+    console.log(options, colors)
     return (
       <div className='current-poll'>
         <h2>Today's poll</h2>
@@ -30,7 +29,7 @@ class CurrentPoll extends Component {
           </div>
 
           <div class='col-12 col-md-6'>
-            <VoteBar labels={labels} votes={votes} />
+            <VoteBar options={options} colors={colors} />
           </div>
         </div>
         <div>Total number of votes recorded {votes_count}</div>
