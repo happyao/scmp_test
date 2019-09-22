@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PollList renders without crashing given the required props 1`] = `
+<div
+  className="row poll-list"
+>
+  <PollItem
+    content={
+      Object {
+        "answer": Object {
+          "options": Array [
+            Object {
+              "id": 3,
+              "label": "Yes",
+              "vote": 4,
+            },
+            Object {
+              "id": 4,
+              "label": "No",
+              "vote": 2,
+            },
+          ],
+          "type": "Single",
+        },
+        "id": 2,
+        "publishedDate": 1516000647,
+        "title": "Should chatbots replace humans in customer service jobs?",
+      }
+    }
+    key="1"
+    onClick={[Function]}
+  />
+  <PollItem
+    content={
+      Object {
+        "answer": Object {
+          "options": Array [
+            Object {
+              "id": 5,
+              "label": "Hopeful",
+              "vote": 2,
+            },
+            Object {
+              "id": 6,
+              "label": "Doubtful",
+              "vote": 2,
+            },
+          ],
+          "type": "Single",
+        },
+        "id": 3,
+        "publishedDate": 1515568647,
+        "title": "How are we feeling about 2018?",
+      }
+    }
+    key="2"
+    onClick={[Function]}
+  />
+  <PollItem
+    content={
+      Object {
+        "answer": Object {
+          "options": Array [
+            Object {
+              "id": 7,
+              "label": "Hong Kong",
+              "vote": 2,
+            },
+            Object {
+              "id": 8,
+              "label": "China",
+              "vote": 1,
+            },
+            Object {
+              "id": 9,
+              "label": "Australia",
+              "vote": 1,
+            },
+            Object {
+              "id": 10,
+              "label": "Thailand",
+              "vote": 1,
+            },
+            Object {
+              "id": 11,
+              "label": "Korea",
+              "vote": 1,
+            },
+            Object {
+              "id": 12,
+              "label": "Japan",
+              "vote": 3,
+            },
+          ],
+          "type": "Multi",
+        },
+        "id": 4,
+        "publishedDate": 1515482247,
+        "title": "Which country/region have you ever visited? (Select all that applies)",
+      }
+    }
+    key="3"
+    onClick={[Function]}
+  />
+  <PollItem
+    content={
+      Object {
+        "answer": Object {
+          "options": Array [
+            Object {
+              "id": 13,
+              "label": "Yes",
+              "vote": 2,
+            },
+            Object {
+              "id": 14,
+              "label": "No",
+              "vote": 1,
+            },
+          ],
+          "type": "Single",
+        },
+        "id": 5,
+        "publishedDate": 1515309447,
+        "title": "Will new benefits encourage you to study or work in mainland?",
+      }
+    }
+    key="4"
+    onClick={[Function]}
+  />
+</div>
+`;

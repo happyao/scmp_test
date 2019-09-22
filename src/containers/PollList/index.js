@@ -8,14 +8,15 @@ class PollList extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      indexArray: [1, 2, 3, 4]
+      indexArray: [...Array(this.props.customData.length).keys()].splice(1)
     }
   }
   componentDidUpdate (prevProps) {
     if (prevProps.currentID !== this.props.currentID) {
-      var indexArray = [0, 1, 2, 3, 4].filter(
-        item => item !== this.props.currentID
-      )
+      var pollIndex = [...Array(this.props.customData.length).keys()]
+      // console.log([...Array(this.props.customData.length).keys()])
+      // [0..4]
+      var indexArray = pollIndex.filter(item => item !== this.props.currentID)
       this.setState({
         indexArray: indexArray
       })
@@ -23,26 +24,16 @@ class PollList extends Component {
   }
   render () {
     var { indexArray } = this.state
-    return (
-      <div className='poll-list'>
+    var pollList = indexArray.map(item => {
+      return (
         <PollItem
-          content={this.props.customData[indexArray[0]]}
-          onClick={() => this.props.chooseItem(indexArray[0])}
+          key={item}
+          content={this.props.customData[item]}
+          onClick={() => this.props.chooseItem(item)}
         />
-        <PollItem
-          content={this.props.customData[indexArray[1]]}
-          onClick={() => this.props.chooseItem(indexArray[1])}
-        />
-        <PollItem
-          content={this.props.customData[indexArray[2]]}
-          onClick={() => this.props.chooseItem(indexArray[2])}
-        />
-        <PollItem
-          content={this.props.customData[indexArray[3]]}
-          onClick={() => this.props.chooseItem(indexArray[3])}
-        />
-      </div>
-    )
+      )
+    })
+    return <div className='row poll-list'>{pollList}</div>
   }
 }
 const mapStateToProps = state => ({
@@ -58,3 +49,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PollList)
+
+export { PollList }

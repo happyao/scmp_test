@@ -10,12 +10,12 @@ var customData = {
           {
             id: 1,
             label: 'Yes',
-            vote: 10
+            vote: 2
           },
           {
             id: 2,
             label: 'No',
-            vote: 20
+            vote: 2
           }
         ]
       }
@@ -30,12 +30,12 @@ var customData = {
           {
             id: 3,
             label: 'Yes',
-            vote: 30
+            vote: 4
           },
           {
             id: 4,
             label: 'No',
-            vote: 40
+            vote: 2
           }
         ]
       }
@@ -50,12 +50,12 @@ var customData = {
           {
             id: 5,
             label: 'Hopeful',
-            vote: 50
+            vote: 2
           },
           {
             id: 6,
             label: 'Doubtful',
-            vote: 60
+            vote: 2
           }
         ]
       }
@@ -71,32 +71,32 @@ var customData = {
           {
             id: 7,
             label: 'Hong Kong',
-            vote: 70
+            vote: 2
           },
           {
             id: 8,
             label: 'China',
-            vote: 80
+            vote: 1
           },
           {
             id: 9,
             label: 'Australia',
-            vote: 90
+            vote: 1
           },
           {
             id: 10,
             label: 'Thailand',
-            vote: 100
+            vote: 1
           },
           {
             id: 11,
             label: 'Korea',
-            vote: 110
+            vote: 1
           },
           {
             id: 12,
             label: 'Japan',
-            vote: 120
+            vote: 3
           }
         ]
       }
@@ -111,12 +111,12 @@ var customData = {
           {
             id: 13,
             label: 'Yes',
-            vote: 120
+            vote: 2
           },
           {
             id: 14,
             label: 'No',
-            vote: 100
+            vote: 1
           }
         ]
       }

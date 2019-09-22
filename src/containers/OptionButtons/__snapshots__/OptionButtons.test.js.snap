@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptionButtons inactive buttons when click single type poll option 1`] = `
+<Fragment>
+  <div
+    className="options"
+  >
+    <button
+      disabled={true}
+      key="5"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#143b6b",
+        }
+      }
+    >
+      Hopeful
+    </button>
+    <button
+      disabled={true}
+      key="6"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#e57335",
+        }
+      }
+    >
+      Doubtful
+    </button>
+  </div>
+  <div
+    style={
+      Object {
+        "color": "#143b6b",
+        "fontSize": "1.5rem",
+        "fontWeight": "bold",
+        "visibility": "visible",
+      }
+    }
+  >
+    You have submitted your answer.
+  </div>
+</Fragment>
+`;
+
+exports[`OptionButtons renders without crashing given the required props 1`] = `
+<Fragment>
+  <div
+    className="options"
+  >
+    <button
+      disabled={false}
+      key="5"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#143b6b",
+        }
+      }
+    >
+      Hopeful
+    </button>
+    <button
+      disabled={false}
+      key="6"
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#e57335",
+        }
+      }
+    >
+      Doubtful
+    </button>
+  </div>
+  <div
+    style={
+      Object {
+        "color": "#143b6b",
+        "fontSize": "1.5rem",
+        "fontWeight": "bold",
+        "visibility": "hidden",
+      }
+    }
+  >
+    You have submitted your answer.
+  </div>
+</Fragment>
+`;

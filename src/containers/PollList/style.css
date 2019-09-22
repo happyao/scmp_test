@@ -1,3 +1,47 @@
 .poll-list {
-  height: 300px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+@media screen and (min-width: 720px) {
+  .poll-list > div:nth-of-type(1) {
+    border-right: 1px solid gray;
+  }
+  .poll-list > div:nth-of-type(1)::after {
+    content: "";
+    width: 90%;
+    right: 5%;
+    bottom: 0px;
+    position: absolute;
+    border-bottom: 1px dotted grey;
+  }
+  .poll-list > div:nth-of-type(2)::after {
+    content: "";
+    width: 90%;
+    bottom: 0px;
+    left: 5%;
+    position: absolute;
+    border-bottom: 1px dotted grey;
+  }
+  .poll-list > div:nth-of-type(3) {
+    border-right: 1px solid gray;
+  }
+}
+
+#line {
+  width: 38%;
+  top: 50%;
+  left: 10%;
+
+  position: absolute;
+  border-bottom: 1px dotted grey;
+}
+
+#line-right {
+  width: 38%;
+  top: 50%;
+  right: 10%;
+
+  position: absolute;
+  border-bottom: 1px dotted grey;
 }

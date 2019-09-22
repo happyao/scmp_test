@@ -1,3 +1,7 @@
 .poll-item {
   margin: 10px;
+  cursor: pointer;
+}
+#icon {
+  height: 7rem;
 }

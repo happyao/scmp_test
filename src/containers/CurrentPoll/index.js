@@ -3,10 +3,14 @@ import OptionButtons from '../OptionButtons'
 import React, { Component } from 'react'
 import './style.css'
 import VoteBar from '../../components/VoteBar'
+import { calculateDate } from '../../Utils/helper'
 class CurrentPoll extends Component {
   render () {
-    var date =
-      new Date(this.props.customData[this.props.currentID].publishedDate) + ''
+    var date = new Date(
+      this.props.customData[this.props.currentID].publishedDate * 1000
+    )
+
+    var publish_date = calculateDate(date)
     var options = this.props.customData[this.props.currentID].answer.options
 
     var votes_count = options.reduce((count, item) => {
@@ -15,24 +19,33 @@ class CurrentPoll extends Component {
 
     var colors =
       options.length === 2
-        ? ['blue', 'yellow']
-        : ['white', 'blue', 'yellow', 'green', 'purple', 'red']
-    console.log(options, colors)
+        ? ['#143b6b', '#e57335']
+        : ['#e57335', '#FFB74D', '#81C784', '#649188', '#47493C', '#143b6b']
+
     return (
       <div className='current-poll'>
-        <h2>Today's poll</h2>
-        <div class='row'>
-          <div class='col-12 col-md-6'>
-            <div>{this.props.customData[this.props.currentID].title}</div>
-            {date}
-            <OptionButtons />
+        <div id='mark' />
+        <h3>Today's poll</h3>
+
+        <div className='row content'>
+          <div className='col-12 col-md-6'>
+            <div id='question'>
+              {this.props.customData[this.props.currentID].title}
+            </div>
+            <label>{publish_date}</label>
+            <OptionButtons
+              answers={this.props.customData[this.props.currentID].answer}
+              colors={colors}
+            />
           </div>
 
-          <div class='col-12 col-md-6'>
+          <div className='col-12 col-md-6'>
             <VoteBar options={options} colors={colors} />
           </div>
         </div>
-        <div>Total number of votes recorded {votes_count}</div>
+        <div id='total-number'>
+          Total number of votes recorded: {votes_count}
+        </div>
       </div>
     )
   }
@@ -42,9 +55,7 @@ const mapStateToProps = state => ({
   customData: state.poll.customData
 })
 
-const mapDispatchToProps = dispatch => ({})
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(CurrentPoll)

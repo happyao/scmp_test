@@ -1,14 +1,29 @@
 import React, { Component } from 'react'
 import './style.css'
-
+import icon from '../../assets/icon.png'
+import { calculateDate } from '../../Utils/helper'
 class PollItem extends Component {
   render () {
-    var date = new Date(this.props.content.publishedDate) + ''
-
+    var date = new Date(this.props.content.publishedDate * 1000)
+    var publish_date = calculateDate(date)
     return (
-      <div className='poll-item' onClick={this.props.onClick}>
-        <div>{this.props.content.title}</div>
-        <div>{date}</div>
+      <div
+        className='col-12 col-md-5'
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center'
+        }}
+      >
+        <img alt='icon' id='icon' src={icon} />
+        <div className='poll-item' onClick={this.props.onClick}>
+          <div
+            style={{ fontSize: '1.5rem', color: '#26658f', fontWeight: 'bold' }}
+          >
+            {publish_date}
+          </div>
+          <div style={{ fontSize: '1.5rem' }}>{this.props.content.title}</div>
+        </div>
       </div>
     )
   }
