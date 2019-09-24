@@ -9,7 +9,6 @@ describe('App', () => {
     const props = {
       customData: poll.polls
     }
-
     const wrapper = shallow(<App {...props} />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })

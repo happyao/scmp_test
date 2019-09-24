@@ -6,30 +6,26 @@ import PollList from '../../containers/PollList'
 import { getData } from '../../actions'
 class App extends Component {
   componentDidMount () {
-    // let xhr = new XMLHttpRequest()
-
-    // xhr.open('GET', 'poll.json')
-    // xhr.responseType = 'json'
-    // xhr.send()
-    // xhr.onerror = function () {
-    //   alert(`Network Error`)
-    // }
-
-    // xhr.onload = function () {
-    //   console.log(this)
-    //   if (xhr.status !== 200) {
-    //     alert(`Error ${xhr.status}: ${xhr.statusText}`)
-    //   } else {
-    //     let responseObj = xhr.response
-    //     console.log(responseObj.polls)
-    //     this.props.getData(responseObj.polls)
-    //   }
-    // }.bind(this)
-
-    // xhr.timeout = 10000
-
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', 'poll.json')
+    xhr.responseType = 'json'
+    xhr.send()
+    xhr.onerror = function () {
+      alert(`Network Error`)
+    }
+    xhr.onload = function () {
+      console.log(this)
+      if (xhr.status !== 200) {
+        alert(`Error ${xhr.status}: ${xhr.statusText}`)
+      } else {
+        let responseObj = xhr.response
+        console.log(responseObj.polls)
+        this.props.getData(responseObj.polls)
+      }
+    }.bind(this)
+    xhr.timeout = 10000
     // we can also use ajax fetch
-    this.getJson()
+    // this.getJson()
   }
 
   async getJson () {

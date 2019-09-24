@@ -21,7 +21,6 @@ describe('OptionButtons', () => {
       answers: poll.polls[3].answer,
       colors: ['#143b6b', '#e57335']
     }
-
     const wrapper = shallow(<OptionButtons {...props} />)
     expect(wrapper.find('button').length).toBe(6)
   })
@@ -47,7 +46,6 @@ describe('OptionButtons', () => {
       .at(0)
       .simulate('click', { target: { style: { backgroundColor: '#fffff' } } })
     expect(wrapper.state()).toStrictEqual(state)
-
     expect(
       wrapper
         .find('button')

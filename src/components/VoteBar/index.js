@@ -45,7 +45,7 @@ class VoteBar extends React.Component {
           datalabels: {
             color: 'white',
             font: {
-              size: '15'
+              size: this.props.small ? '0' : '15'
             },
             formatter: function (value, context) {
               var data = context.chart.data.datasets[0].data
@@ -77,7 +77,8 @@ class VoteBar extends React.Component {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          position: 'relative'
+          position: 'relative',
+          width: this.props.small ? '15%' : ''
         }}
       >
         <canvas ref={this.chartRef} />

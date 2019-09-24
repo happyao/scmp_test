@@ -14,8 +14,6 @@ class PollList extends Component {
   componentDidUpdate (prevProps) {
     if (prevProps.currentID !== this.props.currentID) {
       var pollIndex = [...Array(this.props.customData.length).keys()]
-      // console.log([...Array(this.props.customData.length).keys()])
-      // [0..4]
       var indexArray = pollIndex.filter(item => item !== this.props.currentID)
       this.setState({
         indexArray: indexArray
@@ -24,6 +22,7 @@ class PollList extends Component {
   }
   render () {
     var { indexArray } = this.state
+
     var pollList = indexArray.map(item => {
       return (
         <PollItem

@@ -23,7 +23,7 @@ describe('Reducer', () => {
     expect(newState).toEqual(resultState)
   })
 
-  it('should choose one item', () => {
+  it('should change vote count', () => {
     const initialState2 = {
       ...initialState,
       currentID: 2

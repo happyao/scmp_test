@@ -37,7 +37,6 @@ class OptionButtons extends Component {
       })
     } else if (this.props.answers.type === 'Multi') {
       event.target.disabled = true
-      // event.target.style.backgroundColor = 'grey'
       this.setState({
         historicalId: this.state.historicalId.concat(this.props.currentID)
       })

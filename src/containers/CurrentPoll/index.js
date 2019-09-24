@@ -39,7 +39,14 @@ class CurrentPoll extends Component {
             />
           </div>
 
-          <div className='col-12 col-md-6'>
+          <div
+            className='col-12 col-md-6'
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
             <VoteBar options={options} colors={colors} />
           </div>
         </div>

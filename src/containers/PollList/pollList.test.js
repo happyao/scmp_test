@@ -15,7 +15,7 @@ describe('PollList', () => {
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
-  it('should call handleComponentDidUpdate on prop change', () => {
+  it('should change state on prop change', () => {
     const prevProps = {
       customData: poll.polls,
       currentID: 1
@@ -24,11 +24,9 @@ describe('PollList', () => {
       customData: poll.polls,
       currentID: 2
     }
-
     const state = {
       indexArray: [0, 1, 3, 4]
     }
-
     const wrapper = shallow(<PollList {...prevProps} />)
     wrapper.setProps(newProps)
     expect(wrapper.state()).toStrictEqual(state)
