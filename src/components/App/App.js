@@ -4,6 +4,7 @@ import './App.css'
 import CurrentPoll from '../../containers/CurrentPoll'
 import PollList from '../../containers/PollList'
 import { getData } from '../../actions'
+import {normalize, schema} from 'normalizr'
 class App extends Component {
   componentDidMount () {
     // let xhr = new XMLHttpRequest()
@@ -35,7 +36,13 @@ class App extends Component {
   async getJson () {
     let response = await fetch('poll.json')
     let data = await response.json()
-    this.props.getData(data.polls)
+    const option = new schema.Entity('options',{});
+    const poll = new schema.Entity('polls',{"answer":{options:[option]}})
+    const normalizedData = normalize(data, { polls: [poll] });
+    console.log(normalizedData)
+    console.log(normalizedData.result.polls)
+    //this.props.getData(data.polls)
+    this.props.getData(normalizedData.entities)
     console.log('getjson', data.polls)
   }
 

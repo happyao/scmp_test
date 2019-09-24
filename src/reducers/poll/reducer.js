@@ -1,16 +1,29 @@
-import { types } from '../../actions/types'
+import { types } from "../../actions/types";
 // import customData from '../../poll'
 
 export const initialState = {
-  currentID: 0,
+  currentID: 1,
   customData: []
-}
+};
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.GET_DATA:
-      return { ...state, customData: action.customData }
+      return { ...state, customData: action.customData };
     case types.CHOOSE_ITEM:
-      return { ...state, currentID: action.id }
+      return { ...state, currentID: action.id };
+    case types.VOTE_ITEM:
+      return {
+        ...state,
+        customData: {
+          ...state.customData,
+          options: {
+            ...state.customData.options,
+            [action.item.id]: { ...action.item, vote: action.item.vote + 1 }
+          
+          }
+        }
+      };
+
     case types.VOTE_ITEM:
       return {
         ...state,
@@ -22,20 +35,20 @@ export default (state = initialState, action) => {
                 ...cd.answer,
                 options: cd.answer.options.map(item => {
                   if (item.id === action.id) {
-                    return { ...item, vote: item.vote + 1 }
+                    return { ...item, vote: item.vote + 1 };
                   } else {
-                    return item
+                    return item;
                   }
                 })
               }
-            }
+            };
           } else {
-            return cd
+            return cd;
           }
         })
-      }
+      };
 
     default:
-      return state
+      return state;
   }
-}
+};

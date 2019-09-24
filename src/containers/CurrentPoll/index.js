@@ -7,13 +7,14 @@ import { calculateDate } from '../../Utils/helper'
 class CurrentPoll extends Component {
   render () {
     var date = new Date(
-      this.props.customData[this.props.currentID].publishedDate * 1000
+   
+      this.props.customData.polls[this.props.currentID].publishedDate * 1000
     )
 
     var publish_date = calculateDate(date)
-    var options = this.props.customData[this.props.currentID].answer.options
+    var options = this.props.customData.polls[this.props.currentID].answer.options
 
-    var votes_count = options.reduce((count, item) => {
+    var votes_count = Object.values(options).reduce((count, item) => {
       return count + item.vote
     }, 0)
 
@@ -30,11 +31,11 @@ class CurrentPoll extends Component {
         <div className='row content'>
           <div className='col-12 col-md-6'>
             <div id='question'>
-              {this.props.customData[this.props.currentID].title}
+              {this.props.customData.polls[this.props.currentID].title}
             </div>
             <label>{publish_date}</label>
             <OptionButtons
-              answers={this.props.customData[this.props.currentID].answer}
+              answers={this.props.customData.polls[this.props.currentID].answer}
               colors={colors}
             />
           </div>

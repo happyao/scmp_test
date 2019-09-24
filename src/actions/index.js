@@ -9,7 +9,7 @@ export const chooseItem = id => ({
   id
 })
 
-export const voteItem = id => ({
+export const voteItem = item => ({
   type: types.VOTE_ITEM,
-  id
+  item
 })
